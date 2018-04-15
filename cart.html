@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="static/css/layui.css">
+	<style type="text/css">
+		body{min-width: 1200px;background-color: #f5f5f5;}
+		.cart-box{}
+		.cart-main{background-color: #fff;}
+		.text-center{text-align: center;}
+		.cart-header{width: 100%;height: 70px;line-height: 70px;}
+		.col{text-align: center;width: 120px;}
+		.cart-header .col{float: left;}
+		.col-check{}
+		.col-check .layui-form-checkbox[lay-skin=primary] span{color: #fff;}
+		.col-img{}
+		.col-name{width: 300px;}
+		.col-price{}
+		.col-num{width: 150px;} 
+		.change-goods-num{}
+		.change-goods-num .goods-num{width: 50px; height: 24px;margin: 0 10px;text-align: center;}
+		.change-goods-num>a{font-size: 18px;user-select: none;}
+		.col-total{}
+		.cart-list .col-total{color: #ff6700;}
+		.col-action{} 
+		.cart-list{overflow: hidden;display: table-row;}
+		.cart-list .cart-list-item{padding: 15px 0;}
+		.cart-list .col{display: table-cell; vertical-align: middle;}
+		.cart-list .del{width:24px;height:24px;border-radius: 50%;transition: all .3s;padding: 2px;}
+		.cart-list .del:hover{background-color: red;}
+		.cart-list .del:hover>i{color: #fff;}
+		.cart-list .del>i{font-size: 18px;vertical-align: middle; }
+		.cart-bar{margin-top: 50px;background-color: #fff;padding: 0 20px;height:50px;line-height:50px;color: #757575;text-align: right;}
+		.cart-bar i{color: #ff6700}
+		.section-left{float: left;}
+		.cart-bar .total-price{color: #ff6700}
+		.cart-bar .total-price em{font-style: normal; font-size: 30px;}
+		.cart-bar .cart-total{border-left: 1px solid #eee;}
+		.cart-bar .layui-btn{width: 200px;height: 50px;line-height: 50px;border: none;vertical-align: top;margin-left: 20px;}
+	</style>
+</head>
+<body>
+<div id="app">
+	<fieldset class="layui-elem-field text-center" style="margin-top: 150px;">
+	  <legend>购物车</legend>
+	  <div class="layui-field-box">
+		vue2.x + axios + layui 开发购物车功能
+		
+	  </div>
+	</fieldset>
+	<div class="layui-main">
+		<div class="cart-box">
+			<div class="cart-header layui-bg-green layui-clear">
+				<div class="col col-check">
+					<div class="layui-form">
+						<div class="layui-unselect layui-form-checkbox" :class="{'layui-form-checked':isChecked}" lay-skin="primary" @click="checkAll()">
+							<i class="layui-icon"></i>
+						</div>
+					</div>
+				</div>
+                <div class="col col-img">&nbsp;</div>
+                <div class="col col-name">商品名称</div>
+                <div class="col col-price">单价</div>
+                <div class="col col-num">数量</div>
+                <div class="col col-total">小计</div>
+                <div class="col col-action">操作</div>
+			</div>  
+			<div class="cart-main">
+				<div class="cart-list">
+				<div class="cart-list-item" v-for="item in productList">
+					<div class="col col-check">
+						<div class="layui-form">
+							<div class="layui-unselect layui-form-checkbox" :class="{'layui-form-checked':item.checked}" lay-skin="primary" @click="selectedProducted(item)"> 
+								<i class="layui-icon"></i>
+							</div>
+						</div>
+					</div>
+					<div class="col col-img">  <a href="#" target="_blank"> <img alt="" :src="item.image_url" width="80" height="80"> </a>  </div>
+					<div class="col col-name">  <div class="tags">   </div>  <h3 class="name">  <a href="#" target="_blank"> {{item.product_name}} </a>  </h3>      </div>
+					<div class="col col-price"> {{item.product_price | formatMoney}} </div>
+					<div class="col col-num"> 
+						<div class="change-goods-num">
+							<a href="javascript:void(0)" @click="changeMoney(item,-1)">-</a>
+							<input class="goods-num" type="text" value="1" autocomplete="off" v-model="item.num">
+							<a href="javascript:void(0)" @click="changeMoney(item,1)">+</a>
+						</div>
+					</div>
+					<div class="col col-total"> {{item.product_price * item.num | money('元')}} <p class="pre-info">  </p> </div>
+					<div class="col col-action"> <a href="javascript:void(0);" title="删除" class="del" @click="delConfirm(item)"><i class="layui-icon">&#x1006;</i></a> </div>
+				</div>
+					
+
+
+				</div>
+			</div>
+			<div class="cart-bar">
+				<div class="section-left">
+				<a href="javascript:void(0)">继续购物</a>
+				<span class="cart-total">共 <i>{{totalGoods}}</i> 件商品，已选择 <i>{{totalCheckedGoods}}</i> 件</span>
+				</div>
+				<span class="total-price">
+                    合计：<em>{{totalPrice}}</em>元
+                </span>
+                <a href="javascript:void(0);" class="layui-btn layui-btn-danger" @click="goCheckout">结账</a>
+			</div>
+		</div>
+	</div>
+	</div>
+	<script src="static/layui.js"></script>
+	<script> 
+	layui.use(['layer', 'form'], function(){
+	  var layer = layui.layer
+	  ,form = layui.form;  
+	}); 
+
+	</script> 
+	<script src="static/vue.min.js"></script>
+	<script src="static/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
+	<script src="static/cart.js"></script>
+	<script>
+	
+	</script>
+</body>
+</html>
