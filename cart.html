@@ -15,10 +15,10 @@
 		.cart-header{width: 100%;height: 70px;line-height: 70px;}
 		.col{text-align: center;width: 120px;}
 		.cart-header .col{float: left;}
-		.col-check{}
+		.col-check{text-align: left;padding-left: 24px;width: 100px;}
 		.col-check .layui-form-checkbox[lay-skin=primary] span{color: #fff;}
 		.col-img{}
-		.col-name{width: 300px;}
+		.col-name{width: 330px;text-align:left;overflow: hidden;white-space: nowrap;text-overflow: ellipsis}
 		.col-price{}
 		.col-num{width: 150px;} 
 		.change-goods-num{}
@@ -28,13 +28,13 @@
 		.cart-list .col-total{color: #ff6700;}
 		.col-action{} 
 		.cart-list{overflow: hidden;display: table-row;}
-		.cart-list .cart-list-item{padding: 15px 0;}
+		.cart-list .cart-list-item{padding: 15px 0;border-top: 1px solid #eee;}
 		.cart-list .col{display: table-cell; vertical-align: middle;}
 		.cart-list .del{width:24px;height:24px;border-radius: 50%;transition: all .3s;padding: 2px;}
 		.cart-list .del:hover{background-color: red;}
 		.cart-list .del:hover>i{color: #fff;}
 		.cart-list .del>i{font-size: 18px;vertical-align: middle; }
-		.cart-bar{margin-top: 50px;background-color: #fff;padding: 0 20px;height:50px;line-height:50px;color: #757575;text-align: right;}
+		.cart-bar{margin-top: 30px;background-color: #fff;padding: 0 20px;height:50px;line-height:50px;color: #757575;text-align: right;}
 		.cart-bar i{color: #ff6700}
 		.section-left{float: left;}
 		.cart-bar .total-price{color: #ff6700}
@@ -43,13 +43,12 @@
 		.cart-bar .layui-btn{width: 200px;height: 50px;line-height: 50px;border: none;vertical-align: top;margin-left: 20px;}
 	</style>
 </head>
-<body>
+<body style="padding-bottom:150px;">
 <div id="app">
 	<fieldset class="layui-elem-field text-center" style="margin-top: 150px;">
 	  <legend>购物车</legend>
 	  <div class="layui-field-box">
-		vue2.x + axios + layui 开发购物车功能
-		
+		vue2.x + axios + layui 开发购物车+地址选配功能
 	  </div>
 	</fieldset>
 	<div class="layui-main">
@@ -59,6 +58,7 @@
 					<div class="layui-form">
 						<div class="layui-unselect layui-form-checkbox" :class="{'layui-form-checked':isChecked}" lay-skin="primary" @click="checkAll()">
 							<i class="layui-icon"></i>
+							<span>全选</span>
 						</div>
 					</div>
 				</div>
@@ -80,7 +80,7 @@
 						</div>
 					</div>
 					<div class="col col-img">  <a href="#" target="_blank"> <img alt="" :src="item.image_url" width="80" height="80"> </a>  </div>
-					<div class="col col-name">  <div class="tags">   </div>  <h3 class="name">  <a href="#" target="_blank"> {{item.product_name}} </a>  </h3>      </div>
+					<div class="col col-name">   <a href="#" target="_blank"> {{item.product_name}} </a></div>
 					<div class="col col-price"> {{item.product_price | formatMoney}} </div>
 					<div class="col col-num"> 
 						<div class="change-goods-num">

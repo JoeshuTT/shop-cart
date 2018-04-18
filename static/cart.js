@@ -1,4 +1,9 @@
-// Created by Joeshu on 18/04/01 ... 
+/*
+ * @Author: Joeshu 
+ * @Date: 2018-04-01 21:30:56 
+ * @Last Modified by: Joeshu
+ * @Last Modified time: 2018-04-17 22:47:58
+ */ 
 
 var vm = new Vue({
 	el:"#app",
@@ -20,6 +25,7 @@ var vm = new Vue({
 
 	},
 	mounted:function (){
+		// 商品图片网络地址忽略//i1.mifile.cn/a1/
 		this.cartView();
 	},
 	methods:{ 
