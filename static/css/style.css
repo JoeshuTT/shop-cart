@@ -1,0 +1,48 @@
+body{min-width: 1200px;background-color: #f5f5f5;}
+/* 购物车 */
+.cart-box{}
+.cart-main{background-color: #fff;}
+.text-center{text-align: center;}
+.cart-header{width: 100%;height: 70px;line-height: 70px;}
+.col{text-align: center;width: 120px;}
+.cart-header .col{float: left;}
+.col-check{text-align: left;padding-left: 24px;width: 100px;}
+.col-check .layui-form-checkbox[lay-skin=primary] span{color: #fff;}
+.col-img{}
+.col-name{width: 330px;text-align:left;overflow: hidden;white-space: nowrap;text-overflow: ellipsis}
+.col-price{}
+.col-num{width: 150px;} 
+.change-goods-num{}
+.change-goods-num .goods-num{width: 50px; height: 24px;margin: 0 10px;text-align: center;}
+.change-goods-num>a{font-size: 18px;user-select: none;}
+.col-total{}
+.cart-list .col-total{color: #ff6700;}
+.col-action{}
+.cart-list{overflow: hidden;display: table-row;}
+.cart-list .cart-list-item{padding: 15px 0;border-top: 1px solid #eee;}
+.cart-list .col{display: table-cell; vertical-align: middle;}
+.cart-list .del{width:24px;height:24px;border-radius: 50%;transition: all .3s;padding: 2px;}
+.cart-list .del:hover{background-color: red;}
+.cart-list .del:hover>i{color: #fff;}
+.cart-list .del>i{font-size: 18px;vertical-align: middle; }
+.cart-bar{margin-top: 30px;background-color: #fff;padding: 0 20px;height:50px;line-height:50px;color: #757575;text-align: right;}
+.cart-bar i{color: #ff6700}
+.section-left{float: left;}
+.cart-bar .total-price{color: #ff6700}
+.cart-bar .total-price em{font-style: normal; font-size: 30px;}
+.cart-bar .cart-total{border-left: 1px solid #eee;}
+.cart-bar .layui-btn{width: 200px;height: 50px;line-height: 50px;border: none;vertical-align: top;margin-left: 20px;}
+/* 收货地址 */
+.address-item-new{background-color: #e0e0e0;text-align: center;}
+.address-item-new>i{font-size: 50px;color:#b0b0b0;display: block;margin-top: 42px;transition: all .3s ease;}
+.address-item-new:hover>i{color:#757575}
+.address-item{position:relative;border: 1px solid #e0e0e0;transition: all .4s ease;;height: 180px;background: #fff;padding: 15px 24px 0; margin: 0;cursor: pointer;}
+.address-item:hover,.address-item.active{border-color: #ff6700;}
+.address-item dt{font-size: 18px;color: #333;line-height: 30px;}
+.address-item dd{font-size:14px;color: #757575;line-height: 22px;}
+.address-item .actions{position: absolute; right: 24px; bottom: 20px;}
+.address-item .actions>a{margin-left: 10px; color: #ff6700;}
+.address-item:hover .badge-rim{transition: opacity .3s;visibility: visible;opacity: 1;}
+.address-item .badge-rim{visibility: hidden;opacity: 0;}
+.address-item .badge{position: absolute; left: 24px; bottom: 20px;display: inline-block; padding: 0 6px; font-size: 12px; text-align: center; background-color: #FF5722; color: #fff; border-radius: 2px;}
+.address-item .badge-rim{border-width: 1px; border-style: solid; background-color: #fff; color: #666;}

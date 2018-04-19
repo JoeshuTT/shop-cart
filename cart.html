@@ -7,41 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="stylesheet" type="text/css" href="static/css/layui.css">
-	<style type="text/css">
-		body{min-width: 1200px;background-color: #f5f5f5;}
-		.cart-box{}
-		.cart-main{background-color: #fff;}
-		.text-center{text-align: center;}
-		.cart-header{width: 100%;height: 70px;line-height: 70px;}
-		.col{text-align: center;width: 120px;}
-		.cart-header .col{float: left;}
-		.col-check{text-align: left;padding-left: 24px;width: 100px;}
-		.col-check .layui-form-checkbox[lay-skin=primary] span{color: #fff;}
-		.col-img{}
-		.col-name{width: 330px;text-align:left;overflow: hidden;white-space: nowrap;text-overflow: ellipsis}
-		.col-price{}
-		.col-num{width: 150px;} 
-		.change-goods-num{}
-		.change-goods-num .goods-num{width: 50px; height: 24px;margin: 0 10px;text-align: center;}
-		.change-goods-num>a{font-size: 18px;user-select: none;}
-		.col-total{}
-		.cart-list .col-total{color: #ff6700;}
-		.col-action{} 
-		.cart-list{overflow: hidden;display: table-row;}
-		.cart-list .cart-list-item{padding: 15px 0;border-top: 1px solid #eee;}
-		.cart-list .col{display: table-cell; vertical-align: middle;}
-		.cart-list .del{width:24px;height:24px;border-radius: 50%;transition: all .3s;padding: 2px;}
-		.cart-list .del:hover{background-color: red;}
-		.cart-list .del:hover>i{color: #fff;}
-		.cart-list .del>i{font-size: 18px;vertical-align: middle; }
-		.cart-bar{margin-top: 30px;background-color: #fff;padding: 0 20px;height:50px;line-height:50px;color: #757575;text-align: right;}
-		.cart-bar i{color: #ff6700}
-		.section-left{float: left;}
-		.cart-bar .total-price{color: #ff6700}
-		.cart-bar .total-price em{font-style: normal; font-size: 30px;}
-		.cart-bar .cart-total{border-left: 1px solid #eee;}
-		.cart-bar .layui-btn{width: 200px;height: 50px;line-height: 50px;border: none;vertical-align: top;margin-left: 20px;}
-	</style>
+	<link rel="stylesheet" type="text/css" href="static/css/style.css">
 </head>
 <body style="padding-bottom:150px;">
 <div id="app">
@@ -92,9 +58,6 @@
 					<div class="col col-total"> {{item.product_price * item.num | money('元')}} <p class="pre-info">  </p> </div>
 					<div class="col col-action"> <a href="javascript:void(0);" title="删除" class="del" @click="delConfirm(item)"><i class="layui-icon">&#x1006;</i></a> </div>
 				</div>
-					
-
-
 				</div>
 			</div>
 			<div class="cart-bar">
@@ -105,25 +68,16 @@
 				<span class="total-price">
                     合计：<em>{{totalPrice}}</em>元
                 </span>
-                <a href="javascript:void(0);" class="layui-btn layui-btn-danger" @click="goCheckout">结账</a>
+                <a href="javascript:void(0);" class="layui-btn" @click="goCheckout">结账</a>
 			</div>
 		</div>
 	</div>
 	</div>
 	<script src="static/layui.js"></script>
-	<script> 
-	layui.use(['layer', 'form'], function(){
-	  var layer = layui.layer
-	  ,form = layui.form;  
-	}); 
-
-	</script> 
+	<script src="static/config.js"></script>
 	<script src="static/vue.min.js"></script>
 	<script src="static/axios.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script> -->
 	<script src="static/cart.js"></script>
-	<script>
-	
-	</script>
 </body>
 </html>

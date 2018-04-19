@@ -1,0 +1,41 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": {
+        "uid": "59",
+        "items": [
+            {
+                "addressDefault":true,
+                "addressId": "10001",
+                "userName": "小米之家广州广百新一城店",
+                "streeName": "广东省 广州市 海珠区宝岗大道498号广百新一城三楼编6-8号商铺",
+                "postCode": "510000",
+                "tel": "020-83986395"
+            },
+            {
+                "addressDefault":false,
+                "addressId": "10001",
+                "userName": "小米之家广州高德置地店",
+                "streeName": "广东省 广州市 天河区花城大道85、87号高德置地广场春广场编205号商铺",
+                "postCode": "510000",
+                "tel": "020-38937744"
+            },
+            {
+                "addressDefault":false,
+                "addressId": "10001",
+                "userName": "小米之家广州西城都荟店",
+                "streeName": "广东省 广州市 荔湾区黄沙大道8号西城都荟166、167、168（自编号一层151-153号商铺）",
+                "postCode": "510000",
+                "tel": "020-31012140"
+            },
+            {
+                "addressDefault":false,
+                "addressId": "10001",
+                "userName": "小米之家广州东方宝泰店",
+                "streeName": "广东省 广州市 天河区林和中路63号东方宝泰购物广场负三层3040号商铺",
+                "postCode": "510000",
+                "tel": "020-38915326"
+            }
+        ]
+    }
+}

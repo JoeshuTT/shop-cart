@@ -2,7 +2,7 @@
  * @Author: Joeshu 
  * @Date: 2018-04-01 21:30:56 
  * @Last Modified by: Joeshu
- * @Last Modified time: 2018-04-17 22:47:58
+ * @Last Modified time: 2018-04-19 22:56:27
  */ 
 
 var vm = new Vue({
@@ -14,7 +14,7 @@ var vm = new Vue({
 		totalCheckedGoods:0,
 		isChecked:false,
 		curProduct:'',
-		productList:[]
+		productList:[], 
 	},
 	filters:{
 		formatMoney:function(value){

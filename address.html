@@ -4,17 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>收货地址</title>
+    <link rel="stylesheet" type="text/css" href="static/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
 </head>
 <body>
     <div id="container">
-        <fieldset class="layui-elem-field text-center" style="margin-top: 150px;">
-            <legend>购物车</legend>
-            <div class="layui-field-box">
-                vue2.x + axios + layui 开发购物车+地址选配功能
+        <div class="layui-container">
+            <fieldset class="layui-elem-field text-center" style="margin-top: 150px;">
+                <legend>购物车</legend>
+                <div class="layui-field-box">
+                    vue2.x + axios + layui 开发购物车+地址选配功能
+                </div>
+            </fieldset>
+            <div class="layui-main">
+                <blockquote class="layui-elem-quote layui-elem-quote-nm">收货地址</blockquote>
+                <div class="layui-row layui-col-space10">
+                    <div class="layui-col-md3">
+                        <div class="address-item address-item-new">
+                            <i class="layui-icon">&#xe61f;</i>
+                            添加新地址
+                        </div>
+                    </div>
+                    <div class="layui-col-md3"  v-for="(item,index) in addressList">
+                        <dl class="address-item" @click="currentIndex=index" :class="{'active':index==currentIndex}">
+                            <dt>{{item.userName}}</dt>
+                            <dd>{{item.tel}}</dd>
+                            <dd>{{item.streeName}}<br>({{item.postCode}})</dd>
+                            <div class="badge badge-rim" v-if="!item.addressDefault" @click="setDefault(index)">设为默认</div>
+                            <div class="badge" v-if="item.addressDefault">默认地址</div>
+                            <div class="actions">
+                                <a href="javascript:;" class="addressModify" @click="editAddress">修改</a>
+                                <a href="javascript:;" class="addressDel" @click="delAddress(index)">删除</a>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
             </div>
-        </fieldset>
-        
+        </div>
     </div>
+    <script src="static/layui.js"></script>
+    <script src="static/config.js"></script>
+    <script src="static/vue.min.js"></script>
+    <script src="static/axios.min.js"></script>
+    <script src="static/address.js"></script>
 </body>
 </html>
